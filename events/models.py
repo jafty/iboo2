@@ -15,11 +15,11 @@ class Event(models.Model):
 	description = models.TextField()
 	
 	def event_list(request):
-		events = Post.objects.all()
+		events = Event.objects.all()
 		return render(request, 'events/event_list.html', {'events':events})
 	
-	def event_list(request, pk)
-		event = get_object_or_404(Post, pk=pk)
+	def event_list(request, pk):
+		event = get_object_or_404(Event, pk=pk)
 		return render(request, 'blog/event_detail.html', {'post': post})
 	
 	
