@@ -7,5 +7,6 @@
 				<p>Lieu : {{ event.date }}</p>
 			</div>
 		{% endfor %}
+		<a href="{% url 'event_new' %}">Créer un évènement</a>
 		<a href="logout">logout</a>
 	{% endblock content %}

@@ -1,6 +1,7 @@
 import re
 from django import forms
 from django.contrib.auth.models import User
+from .models import Event
 from django.utils.translation import ugettext_lazy as _
 
 class PassForm(forms.Form):
@@ -25,3 +26,10 @@ class RegistrationForm(forms.Form):
             if self.cleaned_data['password1'] != self.cleaned_data['password2']:
                 raise forms.ValidationError(_("Les deux mots de passe ne correspondent pas"))
         return self.cleaned_data
+
+		
+class EventForm(forms.ModelForm):
+
+    class Meta:
+        model = Event
+        fields = ('title', 'price', 'drink', 'date', 'password_reg',  'password_acc', 'contact', 'description',)
